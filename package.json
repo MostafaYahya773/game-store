@@ -1,0 +1,20 @@
+{
+  "name": "game-store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tailwindcss -i ./app/src/css/input.css -o ./app/src/dist/output.css -w",
+    "finish": "npx tailwindcss -i ./app/src/css/input.css -o ./app/src/dist/output.css -m"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "swiper": "^11.2.4"
+  }
+}
