@@ -125,7 +125,7 @@ export const clickAnmation = () => {
 // show thems
 export const thembtn = () => {
   themebtn.addEventListener('click', () => {
-    themBg.classList.toggle('sm:block');
+    themBg.classList.toggle('hidden');
   });
 };
 
