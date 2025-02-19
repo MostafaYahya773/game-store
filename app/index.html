@@ -38,9 +38,8 @@
             <div class="grid md:grid-cols-[1fr_auto] md:gap-x-5">
               <div class="search relative hidden md:grid">
                 <input
-                  id="searchInput"
                   type="search"
-                  class="text-text-small dark:text-white text-black border-2 outline-none border-sky-400 bg-transparent px-3 py-0 rounded-xl w-[200px] focus:w-[350px] transition-all duration-700"
+                  class="searchInput text-text-small dark:text-white text-black border-2 outline-none border-sky-400 bg-transparent px-3 py-0 rounded-xl w-[200px] focus:w-[350px] transition-all duration-700"
                   placeholder="search game"
                 />
                 <i
@@ -127,9 +126,8 @@
           </div>
           <div class="search p-2 w-full md:hidden">
             <input
-              id="searchInput"
               type="search"
-              class="text-text-small py-2 dark:text-white text-black border-2 outline-none border-sky-400 bg-transparent px-3 rounded-xl w-full"
+              class="searchInput text-text-small py-2 dark:text-white text-black border-2 outline-none border-sky-400 bg-transparent px-3 rounded-xl w-full"
               placeholder="search game"
             />
           </div>
@@ -193,6 +191,7 @@
         <div
           class="grid grid-rows-custom-rows mx-2 sm:mx-3 my-4 gap-3 md:gap-4"
         >
+          <span class="loader m-auto"></span>
           <div
             id="imgsSwip"
             class="w-[100%] h-[250px] sm:h-[400px] rounded-2xl overflow-hidden"

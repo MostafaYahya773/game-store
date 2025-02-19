@@ -7,7 +7,9 @@ const changeThemes = document.querySelectorAll('.changeThemes');
 const themBg = document.querySelector('#them_bg');
 const mobCat = document.querySelectorAll('.mob-categores');
 const pc = document.querySelectorAll('.pc');
+const spinner = document.querySelector('.loader');
 const section = document.querySelector('section');
+const search = document.querySelectorAll('.searchInput');
 const html = document.querySelector('html');
 
 export async function getdata() {
@@ -23,8 +25,10 @@ export async function getdata() {
     options
   );
   let result = await data.json();
+  spinner.style.display = 'none';
   imgSwap(result);
   showGames(result);
+  gameSearch(result);
 }
 
 export async function getCategores(q) {
@@ -40,6 +44,7 @@ export async function getCategores(q) {
     options
   );
   let result = await data.json();
+  spinner.style.display = 'none';
   showGames(result);
 }
 
@@ -65,11 +70,11 @@ const showGames = (data) => {
   let box = ``;
   for (let i = 0; i < data.length; i++) {
     box += `
-      <div class="box dark:bg-slate-900 grid grid-rows-2 min-w-7 shadow-sm shadow-sky-500 rounded-2xl">
-            <img class="w-full h-full rounded-t-2xl" loading="lazy" src="${
+      <div class="box min-h-[400px] dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
+            <img class="w-full rounded-t-2xl" loading="lazy" src="${
               data[i].thumbnail
             }" alt="img" />
-            <div class='sm:p-2 p-3 grid grid-rows-[auto]'>
+            <div class='sm:p-2 p-3 grid grid-rows-[auto] min-h-[100%]' >
             <div
               class="align-middle flex justify-between text-text-mediam font-medium  text-sky-300 capitalize"
             >
@@ -121,7 +126,47 @@ export const clickAnmation = () => {
     });
   });
 };
-
+// search for any game
+export const gameSearch = (data) => {
+  search.forEach((ele) => {
+    ele.addEventListener('keydown', function () {
+      let box = ``;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].title.toLowerCase().includes(ele.value.toLowerCase())) {
+          box += `
+        <div class="box min-h-[400px] dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
+        <img class="w-full rounded-t-2xl" loading="lazy" src="${
+          data[i].thumbnail
+        }" alt="img" />
+            <div class='sm:p-2 p-3 grid grid-rows-[auto] min-h-[100%]' >
+            <div
+            class="align-middle flex justify-between text-text-mediam font-medium  text-sky-300 capitalize"
+            >
+              <h2 class='sm:text-text-normal lg:text-[18px]'>${data[
+                i
+              ].title.slice(0, 15)}</h2>
+              <p class="sm:text-text-normal sm:py-0 lg:text-text-mediam rounded-3xl text-sky-300 px-5 py-1">free</p>
+              </div>
+              <p class=" text-slate-600 dark:text-white mb-3 sm:text-[15px] lg:text-[17px] font-light">${
+                data[i].short_description
+              }</p>
+                <div class="footer flex justify-between items-center border-t-2 border-solid dark:border-white border-[#00000052]">
+                <p class=" text-sky-400 sm:text-text-small sm:py-1 px-1 py-2">${
+                  data[i].genre
+                }</p>
+            <p class=" text-sky-400 sm:text-text-small sm:py-1 px-1 py-2">${
+              data[i].platform
+            }</p>
+              </div>
+              </div>
+              </div>
+              `;
+        }
+      }
+      games.innerHTML = box;
+    });
+  });
+};
 // show thems
 export const thembtn = () => {
   themebtn.addEventListener('click', () => {
@@ -153,6 +198,7 @@ export const systemMode = () => {
     html.classList.remove('dark');
   }
 };
+// open and close aside
 export const asideOptions = () => {
   closeAside.addEventListener('click', () => {
     document.querySelector('aside').classList.add('lg:hidden');
