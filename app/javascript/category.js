@@ -25,8 +25,10 @@ export async function getdata() {
     options
   );
   let result = await data.json();
+  console.log(result);
+
   spinner.style.display = 'none';
-  imgSwap(result);
+  // imgSwap(result);
   showGames(result);
   gameSearch(result);
 }
@@ -47,24 +49,6 @@ export async function getCategores(q) {
   spinner.style.display = 'none';
   showGames(result);
 }
-
-const imgSwap = (data) => {
-  let div = ``;
-  for (let i = 0; i < data.length; i++) {
-    div += `
-      <img src="${data[i].thumbnail}" class='swipe w-[100%] h-[400px] rounded-2xl' alt="Slide Image" />
-     `;
-    imgsSwip.innerHTML = div;
-    let x = 0;
-    setInterval(() => {
-      x += 100;
-      document.querySelectorAll('.swipe').forEach((ele) => {
-        ele.style.transform = `translateY(${-x}%)`;
-        ele.style.transition = '1s';
-      });
-    }, 4000);
-  }
-};
 
 const showGames = (data) => {
   let box = ``;
@@ -198,8 +182,9 @@ export const asideOptions = () => {
   });
 
   openAside.addEventListener('click', () => {
-    document.querySelector('aside').classList.remove('lg:hidden');
     section.classList.add('lg:grid-cols-custom');
+    document.querySelector('aside').classList.remove('lg:hidden');
+    document.querySelector('aside').classList.add('lg:block');
     openAside.classList.remove('lg:block');
   });
 };
