@@ -71,28 +71,18 @@ const showGames = (data) => {
   for (let i = 0; i < data.length; i++) {
     box += `
       <div class="box min-h-[400px] dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
-            <img class="w-full rounded-t-2xl" loading="lazy" src="${
-              data[i].thumbnail
-            }" alt="img" />
+            <img class="w-full rounded-t-2xl" loading="lazy" src="${data[i].thumbnail}" alt="img" />
             <div class='sm:p-2 p-3 grid grid-rows-[auto] min-h-[100%]' >
             <div
               class="align-middle flex justify-between text-text-mediam font-medium  text-sky-300 capitalize"
             >
-              <h2 class='sm:text-text-normal lg:text-[18px]'>${data[
-                i
-              ].title.slice(0, 15)}</h2>
+              <h2 class='sm:text-text-normal lg:text-[18px]'>${data[i].title}</h2>
               <p class="sm:text-text-normal sm:py-0 lg:text-text-mediam rounded-3xl text-sky-300 px-5 py-1">free</p>
             </div>
-            <p class=" text-slate-600 dark:text-white mb-3 sm:text-[15px] lg:text-[17px] font-light">${
-              data[i].short_description
-            }</p>
+            <p class=" text-slate-600 dark:text-white mb-3 sm:text-[15px] lg:text-[17px] font-light">${data[i].short_description}</p>
             <div class="footer flex justify-between items-center border-t-2 border-solid dark:border-white border-[#00000052]">
-              <p class=" text-sky-400 sm:text-text-small sm:py-1 px-1 py-2">${
-                data[i].genre
-              }</p>
-              <p class=" text-sky-400 sm:text-text-small sm:py-1 px-1 py-2">${
-                data[i].platform
-              }</p>
+              <p class=" text-sky-400 sm:text-text-small sm:py-1 px-1 py-2">${data[i].genre}</p>
+              <p class=" text-sky-400 sm:text-text-small sm:py-1 px-1 py-2">${data[i].platform}</p>
             </div>
             </div>
           </div>
