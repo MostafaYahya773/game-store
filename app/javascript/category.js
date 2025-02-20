@@ -108,9 +108,10 @@ const showInfo = (data) => {
               <img
                 class="w-[900px] h-auto rounded-xl"
                 src="${data.thumbnail}"
+                id='mainImg'
                 alt=""
               />
-              <div class="more flex gap-3 flex-wrap">
+              <div id='imgContainer' class="more flex gap-3 flex-wrap cursor-pointer">
                 <div class="w-32">
                   <img src="${data.screenshots[0].image}" class="w-full rounded-2xl" alt="" />
                 </div>
@@ -287,6 +288,16 @@ const showInfo = (data) => {
           </div>
     `;
   detailsInfo.innerHTML += box;
+  ChangeImages();
+};
+
+const ChangeImages = () => {
+  const mainImg = document.querySelector('#mainImg');
+  const imgContainer = document.querySelector('#imgContainer');
+  imgContainer.addEventListener('click', (e) => {
+    let newImg = e.target.src;
+    mainImg.setAttribute('src', newImg);
+  });
 };
 
 const showGameDetals = () => {
