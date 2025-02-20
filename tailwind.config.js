@@ -20,5 +20,5 @@ module.exports = {
     },
   },
   darkMode: 'class',
-  plugins: [require('flyonui'), require('flyonui/plugin')],
+  plugins: [],
 };

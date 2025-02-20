@@ -1,14 +1,14 @@
 const closeAside = document.querySelector('.closeAside');
 const openAside = document.querySelector('.openAside');
 const games = document.querySelector('#games');
-const imgsSwip = document.querySelector('#imgsSwip');
+const changImg = document.querySelector('#changImg');
 const themebtn = document.querySelector('#themebtn');
 const changeThemes = document.querySelectorAll('.changeThemes');
 const themBg = document.querySelector('#them_bg');
 const mobCat = document.querySelectorAll('.mob-categores');
 const pc = document.querySelectorAll('.pc');
 const spinner = document.querySelector('.loader');
-const section = document.querySelector('section');
+const section = document.querySelector('.primary');
 const search = document.querySelectorAll('.searchInput');
 const html = document.querySelector('html');
 
@@ -25,11 +25,10 @@ export async function getdata() {
     options
   );
   let result = await data.json();
-  console.log(result);
-
   spinner.style.display = 'none';
-  // imgSwap(result);
+
   showGames(result);
+  swipImg(result);
   gameSearch(result);
 }
 
@@ -50,11 +49,28 @@ export async function getCategores(q) {
   showGames(result);
 }
 
+export async function showDetals(q) {
+  const options = {
+    method: 'GET',
+    headers: {
+      'x-rapidapi-key': '8ff2eb8e11mshdafc7a338f13e24p191d3ajsnca199c960420',
+      'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
+    },
+  };
+
+  const data = await fetch(
+    `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${q}`,
+    options
+  );
+  const result = await data.json();
+  console.log(result);
+}
+
 const showGames = (data) => {
   let box = ``;
   for (let i = 0; i < data.length; i++) {
     box += `
-      <div class="box min-h-[400px] dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
+      <div id=${data[i].id} class="box min-h-[400px] bg-white dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
             <img class="w-full rounded-t-2xl" loading="lazy" src="${data[i].thumbnail}" alt="img" />
             <div class='sm:p-2 p-3 grid grid-rows-[auto] min-h-[100%]' >
             <div
@@ -73,6 +89,28 @@ const showGames = (data) => {
     `;
   }
   games.innerHTML = box;
+  showGameDetals();
+};
+
+const showGameDetals = () => {
+  const boxes = document.querySelectorAll('.box');
+  boxes.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      showDetals(`${ele.id}`);
+    });
+  });
+};
+
+const swipImg = (data) => {
+  const imgContainer = [];
+  let i = 0;
+  data.forEach((ele) => {
+    imgContainer.push(ele.thumbnail);
+  });
+  setInterval(() => {
+    i++;
+    changImg.setAttribute('src', imgContainer[i]);
+  }, 2000);
 };
 
 export const clickAnmation = () => {

@@ -23,16 +23,18 @@
     <link rel="stylesheet" href="./src/dist/output.css" />
   </head>
   <body
-    class="bg-bg-ligh-mode defult_value relative flex justify-center dark:bg-slate-950"
+    class="bg-white min-h-[100vh] defult_value relative flex justify-center dark:bg-slate-950"
   >
-    <main class="flex flex-col">
+    <main class="flex flex-col max-w-[1800px] relative">
       <header
-        class="sticky top-0 z-50 bg-white dark:bg-slate-950 shadow-sm shadow-slate-400"
+        class="fixed w-full left-0 z-50 bg-white dark:bg-slate-950 shadow-sm shadow-slate-400 py-1"
       >
         <nav class="flex py-2 px-3 justify-between items-center">
           <div class="icon flex gap-x-2 items-center">
             <i class="fa-solid fa-gamepad text-[35px] text-sky-500"></i>
-            <h2 class="text-2xl font-medium dark:text-white">Game Store</h2>
+            <h2 class="text-2xl text-slate-950 font-medium dark:text-white">
+              Game Store
+            </h2>
           </div>
           <div class="setting relative">
             <div class="grid md:grid-cols-[1fr_auto_auto] md:gap-x-5">
@@ -79,126 +81,344 @@
           </div>
         </nav>
       </header>
-      <section class="max-w-[1800px] grid-cols-1 grid lg:relative">
-        <div class="mobile lg:hidden flex flex-col p-2">
-          <div class="flex gap-0 items-center">
-            <h3
-              class="title p-2 text-text-mediam font-medium text-slate-900 dark:text-white"
-            >
-              Categories
-            </h3>
-            <ul
-              class="flex bg-slate-200 w-full gap-x-4 rounded-3xl lg:hidden overflow-x-scroll px-3"
-            >
-              <li
-                class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
-              >
-                mmorpg
-              </li>
-              <li
-                class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
-              >
-                shooter
-              </li>
-              <li
-                class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
-              >
-                sailing
-              </li>
-              <li
-                class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
-              >
-                permadeath
-              </li>
-              <li
-                class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
-              >
-                superhero
-              </li>
-              <li
-                class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
-              >
-                pixel
-              </li>
-            </ul>
-          </div>
-          <div class="search p-2 w-full md:hidden">
-            <input
-              type="search"
-              class="searchInput text-text-small py-2 dark:text-white text-black border-2 outline-none border-sky-400 bg-transparent px-3 rounded-xl w-full"
-              placeholder="search game"
-            />
-          </div>
-        </div>
-
-        <div
-          class="hidden lg:block fixed openAside z-50 ms-3 dark:text-white top-14 cursor-pointer"
-        >
-          <i class="fa-solid fa-bars text-2xl"></i>
-        </div>
-
-        <aside
-          class="hidden p-4 lg:border-solid relative md:border-r-2 lg:border-sky-200 overflow-hidden"
-        >
-          <div class="icon closeAside fixed right-[86%] top-16 cursor-pointer">
-            <i class="fa-solid fa-x dark:text-white"></i>
-          </div>
-          <div class="fixed z-30 mt-[-16px] lg:pt-2 dark:bg-slate-950">
-            <h3
-              class="title text-text-mediam font-medium mb-3 text-slate-800 dark:text-white"
-            >
-              Categories
-            </h3>
-            <ul
-              class="border-s-2 border-slate-100 border-solid dark:border-slate-700"
-            >
-              <li
-                class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
-              >
-                mmorpg
-              </li>
-              <li
-                class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
-              >
-                shooter
-              </li>
-              <li
-                class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
-              >
-                sailing
-              </li>
-              <li
-                class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
-              >
-                permadeath
-              </li>
-              <li
-                class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
-              >
-                superhero
-              </li>
-              <li
-                class="pc ps-3 mb-5 mb-3 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
-              >
-                pixel
-              </li>
-            </ul>
-          </div>
-        </aside>
-
-        <div
-          class="grid grid-rows-custom-rows mx-2 sm:mx-3 my-4 gap-3 md:gap-4"
-        >
-          <span class="loader m-auto"></span>
+      <section class="w-[95%] sm:w-[80%] m-auto">
+        <div class="detils grid grid-rows-2 mt-16 w-full gap-y-4 md:gap-y-0">
           <div
-            id="games"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
-          ></div>
+            class="top w-full grid lg:grid-cols-[65%_35%] gap-y-8 items-center"
+          >
+            <div
+              class="imgside h-auto flex flex-col gap-y-4 w-full sm:mt-0 md:p-2"
+            >
+              <img
+                class="w-[900px] h-auto rounded-xl"
+                src="./05ea3d0.jpg"
+                alt=""
+              />
+              <div class="more flex gap-3 flex-wrap">
+                <div class="w-32">
+                  <img src="./05ea3d0.jpg" class="w-full rounded-2xl" alt="" />
+                </div>
+                <div class="w-32">
+                  <img
+                    src="./05ea3d0.jpg"
+                    class="w-[100%] rounded-2xl"
+                    alt=""
+                  />
+                </div>
+                <div class="w-32">
+                  <img
+                    src="./05ea3d0.jpg"
+                    class="w-[100%] rounded-2xl"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="info w-full md:p-5 flex flex-col gap-3">
+              <div class="title">
+                <h1
+                  class="text-center text-4xl mb-6 capitalize font-medium text-slate-900 dark:text-sky-400"
+                >
+                  god of war
+                </h1>
+                <p class="dark:text-white font-light">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia
+                  blanditiis et provident rerum minus,
+                </p>
+                <h2 class="text-center text-2xl dark:text-sky-200 mt-4">
+                  shooter
+                </h2>
+              </div>
+              <div class="btns">
+                <div
+                  class="flex flex-col gap-3 w-[95%] sm:w-[90%] m-auto rounded-md shadow-xs"
+                >
+                  <a
+                    href="#"
+                    aria-current="page"
+                    class="rounded-lg px-4 py-2 text-sm font-medium text-blue-700 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+                  >
+                    Play Now
+                  </a>
+                  <a
+                    href="#"
+                    class="rounded-lg px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+                  >
+                    More details
+                  </a>
+                </div>
+              </div>
+              <div class="moredetails">
+                <ul
+                  class="w-[95%] md:w-[90%] m-auto text-sm font-medium text-gray-900 bg-white rounded-lg dark:bg-transparent dark:border-gray-600 dark:text-white"
+                >
+                  <li
+                    class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                  >
+                    <h1 class="font-normal opacity-60 tracking-[1px]">
+                      developer
+                    </h1>
+                    <h1 class="font-normal tracking-[1px]">mostafa</h1>
+                  </li>
+                  <li
+                    class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                  >
+                    <h1 class="font-normal opacity-60 tracking-[1px]">
+                      Publisher
+                    </h1>
+                    <h1 class="font-normal tracking-[1px]">mostafa</h1>
+                  </li>
+                  <li
+                    class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                  >
+                    <h1 class="font-normal opacity-60 tracking-[1px]">
+                      Release Date
+                    </h1>
+                    <h1 class="font-normal tracking-[1px]">Platform</h1>
+                  </li>
+                  <li
+                    class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                  >
+                    <h1 class="font-normal opacity-60 tracking-[1px]">
+                      Profile
+                    </h1>
+                    <h1 class="font-normal tracking-[1px]">mostafa</h1>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="botton w-full p-2">
+            <div class="description text-white flex flex-col gap-3 mb-4">
+              <h1 class="text-slate-950 dark:text-sky-400 text-3xl">
+                Game Description
+              </h1>
+              <p class="text-slate-950 dark:text-white">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+                repellendus perspiciatis assumenda quis corrupti dolores nisi
+                aut fugit sint molestias excepturi illo ducimus temporibus nam a
+                fuga voluptas, vero itaque impedit officia. Alias accusantium
+                iste corporis quae natus maiores, quod ratione asperiores, omnis
+                voluptatem vero vitae, quasi nostrum deleniti rem.
+              </p>
+            </div>
+            <div class="system_requirments">
+              <h1 class="dark:text-sky-400 text-slate-950 text-2xl capitalize">
+                system requirments
+              </h1>
+              <div
+                class="requirments mt-4 rounded-xl p-3 m-h-96 bg-slate-200 dark:bg-zinc-700 lg:w-[65%]"
+              >
+                <h1
+                  class="dark:text-white font-normal border-b-2 mb-4 border-sky-400 w-fit pb-1"
+                >
+                  windows
+                </h1>
+                <div class="mimum">
+                  <h1
+                    class="info dark:text-white text-slate-950 capitalize mb-5"
+                  >
+                    minmum
+                  </h1>
+                  <div
+                    class="os mb-3 border-b-2 border-opacity-45 dark:border-white border-slate-950 pb-1"
+                  >
+                    <h1 class="capitalize text-sky-400 text-[18px]">os</h1>
+                    <p class="dark:text-white font-light">
+                      Lorem ipsum dolor sit amet consectetur adipi
+                    </p>
+                  </div>
+                  <div
+                    class="processor mb-3 border-b-2 border-opacity-45 dark:border-white border-slate-950 pb-1"
+                  >
+                    <h1 class="capitalize text-sky-400 text-[18px]">
+                      processor
+                    </h1>
+                    <p class="dark:text-white font-light">
+                      Lorem ipsum dolor sit amet consectetur adipi
+                    </p>
+                  </div>
+                  <div
+                    class="memory mb-3 border-b-2 border-opacity-45 dark:border-white border-slate-950 pb-1"
+                  >
+                    <h1 class="capitalize text-sky-400 text-[18px]">memory</h1>
+                    <p class="dark:text-white font-light">
+                      Lorem ipsum dolor sit amet consectetur adipi
+                    </p>
+                  </div>
+                  <div
+                    class="graphics mb-3 border-b-2 border-opacity-45 dark:border-white border-slate-950 pb-1"
+                  >
+                    <h1 class="capitalize text-sky-400 text-[18px]">
+                      graphics
+                    </h1>
+                    <p class="dark:text-white font-light">
+                      Lorem ipsum dolor sit amet consectetur adipi
+                    </p>
+                  </div>
+                  <div
+                    class="storage mb-3 border-b-2 border-opacity-45 dark:border-white border-slate-950 pb-1"
+                  >
+                    <h1 class="capitalize text-sky-400 text-[18px]">
+                      graphics
+                    </h1>
+                    <p class="dark:text-white font-light">
+                      Lorem ipsum dolor sit amet consectetur adipi
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="hidden">
+        <div class="primary grid-cols-1 grid lg:relative">
+          <div class="mobile lg:hidden flex flex-col p-2">
+            <div class="flex gap-0 items-center">
+              <h3
+                class="title p-2 text-text-mediam font-medium text-slate-900 dark:text-white"
+              >
+                Categories
+              </h3>
+              <ul
+                class="flex bg-slate-200 w-full gap-x-4 rounded-3xl lg:hidden overflow-x-scroll px-3"
+              >
+                <li
+                  class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
+                >
+                  mmorpg
+                </li>
+                <li
+                  class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
+                >
+                  shooter
+                </li>
+                <li
+                  class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
+                >
+                  sailing
+                </li>
+                <li
+                  class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
+                >
+                  permadeath
+                </li>
+                <li
+                  class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
+                >
+                  superhero
+                </li>
+                <li
+                  class="mob-categores cursor-pointer pe-10 py-1 text-slate-700 font-medium"
+                >
+                  pixel
+                </li>
+              </ul>
+            </div>
+            <div class="search p-2 w-full md:hidden">
+              <input
+                type="search"
+                class="searchInput text-text-small py-2 dark:text-white text-black border-2 outline-none border-sky-400 bg-transparent px-3 rounded-xl w-full"
+                placeholder="search game"
+              />
+            </div>
+          </div>
+
+          <div
+            class="hidden lg:block fixed openAside z-50 ms-3 text-slate-950 dark:text-white top-14 cursor-pointer"
+          >
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </div>
+
+          <aside
+            class="hidden p-4 lg:border-solid relative md:border-r-2 lg:border-sky-200 overflow-hidden"
+          >
+            <div
+              class="icon closeAside fixed right-[86%] top-16 cursor-pointer"
+            >
+              <i class="fa-solid fa-x dark:text-white"></i>
+            </div>
+            <div class="fixed z-30 mt-[-16px] lg:pt-2 dark:bg-slate-950">
+              <h3
+                class="title text-text-mediam font-medium mb-3 text-slate-800 dark:text-white"
+              >
+                Categories
+              </h3>
+              <ul
+                class="border-s-2 border-slate-100 border-solid dark:border-slate-700"
+              >
+                <li
+                  class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
+                >
+                  mmorpg
+                </li>
+                <li
+                  class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
+                >
+                  shooter
+                </li>
+                <li
+                  class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
+                >
+                  sailing
+                </li>
+                <li
+                  class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
+                >
+                  permadeath
+                </li>
+                <li
+                  class="pc ps-3 mb-5 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
+                >
+                  superhero
+                </li>
+                <li
+                  class="pc ps-3 mb-5 mb-3 ms-[-1.5px] cursor-pointer text-slate-600 font-medium"
+                >
+                  pixel
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          <div
+            class="grid grid-rows-custom-rows mx-2 sm:mx-3 my-4 gap-3 md:gap-4"
+          >
+            <span class="loader m-auto"></span>
+            <div class="hero w-full">
+              <div
+                id="default-carousel"
+                class="relative w-full h-48 lg:h-96"
+                data-carousel="slide"
+              >
+                <!-- Carousel wrapper -->
+                <div class="overflow-hidden rounded-lg h-[100%] lg:h-96">
+                  <!-- Item 1 -->
+                  <div
+                    class="duration-700 ease-in-out relative h-[100%]"
+                    data-carousel-item
+                  >
+                    <img
+                      src="./05ea3d0.jpg"
+                      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 lg:scale-y-[.5] left-1/2"
+                      alt="..."
+                      id="changImg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="games"
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
+            ></div>
+          </div>
         </div>
       </section>
     </main>
-    <script src="../node_modules/flyonui/dist/js/accordion.js"></script>
-    <script src="../node_modules/flyonui/flyonui.js"></script>
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
     <script type="module" src="./javascript/script.js"></script>
   </body>
 </html>
