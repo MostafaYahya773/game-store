@@ -8,7 +8,10 @@ const themBg = document.querySelector('#them_bg');
 const mobCat = document.querySelectorAll('.mob-categores');
 const pc = document.querySelectorAll('.pc');
 const spinner = document.querySelector('.loader');
-const section = document.querySelector('.primary');
+const primary = document.querySelector('#primary');
+const detalsPage = document.querySelector('#details');
+const closeDetails = document.querySelector('.close-details');
+const primarySection = document.querySelector('#primarysection');
 const search = document.querySelectorAll('.searchInput');
 const html = document.querySelector('html');
 
@@ -70,7 +73,7 @@ const showGames = (data) => {
   let box = ``;
   for (let i = 0; i < data.length; i++) {
     box += `
-      <div id=${data[i].id} class="box min-h-[400px] bg-white dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
+      <div id=${data[i].id} class="cursor-pointer hover:scale-[1.02] duration-[400] ease-in-out transition-all box min-h-[400px] bg-white dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
             <img class="w-full rounded-t-2xl" loading="lazy" src="${data[i].thumbnail}" alt="img" />
             <div class='sm:p-2 p-3 grid grid-rows-[auto] min-h-[100%]' >
             <div
@@ -97,7 +100,13 @@ const showGameDetals = () => {
   boxes.forEach((ele) => {
     ele.addEventListener('click', () => {
       showDetals(`${ele.id}`);
+      primarySection.classList.add('hidden');
+      detalsPage.classList.remove('hidden');
     });
+  });
+  closeDetails.addEventListener('click', () => {
+    primarySection.classList.remove('hidden');
+    detalsPage.classList.add('hidden');
   });
 };
 
@@ -214,13 +223,13 @@ export const systemMode = () => {
 export const asideOptions = () => {
   closeAside.addEventListener('click', () => {
     document.querySelector('aside').classList.add('lg:hidden');
-    section.classList.remove('lg:grid-cols-custom');
-    section.classList.add('lg:grid-row-[auto_1fr]');
+    primary.classList.remove('lg:grid-cols-custom');
+    primary.classList.add('lg:grid-row-[auto_1fr]');
     openAside.classList.add('lg:block');
   });
 
   openAside.addEventListener('click', () => {
-    section.classList.add('lg:grid-cols-custom');
+    primary.classList.add('lg:grid-cols-custom');
     document.querySelector('aside').classList.remove('lg:hidden');
     document.querySelector('aside').classList.add('lg:block');
     openAside.classList.remove('lg:block');
