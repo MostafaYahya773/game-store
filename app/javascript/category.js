@@ -296,7 +296,11 @@ const ChangeImages = () => {
   const imgContainer = document.querySelector('#imgContainer');
   imgContainer.addEventListener('click', (e) => {
     let newImg = e.target.src;
-    mainImg.setAttribute('src', newImg);
+    if (newImg) {
+      mainImg.setAttribute('src', newImg);
+    } else {
+      e.preventDefault();
+    }
   });
 };
 
