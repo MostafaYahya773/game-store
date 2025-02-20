@@ -75,7 +75,7 @@ const showGames = (data) => {
   for (let i = 0; i < data.length; i++) {
     box += `
       <div id=${data[i].id} class="cursor-pointer hover:scale-[1.02] duration-[400] ease-in-out transition-all box min-h-[400px] bg-white dark:bg-slate-900 grid grid-rows-2 min-w-[100%] shadow-sm shadow-sky-500 rounded-2xl">
-            <img class="w-full rounded-t-2xl h-[100%]" loading="lazy" src="${data[i].thumbnail}" alt="img" />
+            <img class="w-full rounded-t-2xl" loading="lazy" src="${data[i].thumbnail}" alt="img" />
             <div class='sm:p-2 p-3 grid grid-rows-[auto] min-h-[100%]' >
             <div
               class="align-middle flex justify-between text-text-mediam font-medium  text-sky-300 capitalize"
