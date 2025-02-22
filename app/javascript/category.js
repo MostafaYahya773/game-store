@@ -67,6 +67,7 @@ async function showDetals(q) {
     options
   );
   const result = await data.json();
+
   showInfo(result);
 }
 
@@ -98,9 +99,129 @@ const showGames = (data) => {
 
 const showInfo = (data) => {
   let box = ``;
-  box = `
+  if (data.platform === 'Web Browser') {
+    box = `
+    <div
+          class="top w-full grid lg:grid-cols-[65%_35%] gap-y-8"
+        >
+          <div
+            class="imgside h-auto flex flex-col gap-y-4 w-full sm:mt-0 md:p-2"
+          >
+            <img
+              class="w-[900px] h-auto rounded-xl"
+              src="${data.thumbnail}"
+              id='mainImg'
+              alt=""
+            />
+            <div id='imgContainer' class="more flex gap-3 flex-wrap cursor-pointer">
+              <div class="w-32">
+                <img src="${data.screenshots[0].image}" class="w-full rounded-2xl" alt="" />
+              </div>
+              <div class="w-32">
+                <img
+                  src="${data.screenshots[1].image}"
+                  class="w-[100%] rounded-2xl"
+                  alt=""
+                />
+              </div>
+              <div class="w-32">
+                <img
+                  src="${data.screenshots[2].image}"
+                  class="w-[100%] rounded-2xl"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="info w-full md:p-5 flex flex-col gap-3">
+            <div class="title">
+              <h1
+                class="text-center text-4xl mb-6 capitalize font-medium text-slate-900 dark:text-sky-400"
+              >
+                ${data.title}
+              </h1>
+              <p class="dark:text-white font-light">
+               ${data.short_description}
+              </p>
+              <h2 class="text-center text-2xl dark:text-sky-200 mt-4">
+                ${data.genre}
+              </h2>
+            </div>
+            <div class="btns">
+              <div
+                class="flex flex-col gap-3 w-[95%] sm:w-[90%] m-auto rounded-md shadow-xs"
+              >
+                <a
+                target='_blabk'
+                  href="${data.game_url}"
+                  aria-current="page"
+                  class="rounded-lg px-4 py-2 text-sm font-medium text-blue-700 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+                >
+                  Play Now
+                </a>
+                <a
+                target='_blabk'
+                  href="${data.freetogame_profile_url}"
+                  class="rounded-lg px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white"
+                >
+                  More details
+                </a>
+              </div>
+            </div>
+            <div class="moredetails">
+              <ul
+                class="w-[95%] md:w-[90%] m-auto text-sm font-medium text-gray-900 bg-white rounded-lg dark:bg-transparent dark:border-gray-600 dark:text-white"
+              >
+                <li
+                  class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                >
+                  <h1 class="font-normal opacity-60 tracking-[1px]">
+                    developer
+                  </h1>
+                  <h1 class="font-normal tracking-[1px]">${data.developer}</h1>
+                </li>
+                <li
+                  class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                >
+                  <h1 class="font-normal opacity-60 tracking-[1px]">
+                    Publisher
+                  </h1>
+                  <h1 class="font-normal tracking-[1px]">${data.publisher}</h1>
+                </li>
+                <li
+                  class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                >
+                  <h1 class="font-normal opacity-60 tracking-[1px]">
+                    Release Date
+                  </h1>
+                  <h1 class="font-normal tracking-[1px]">${data.release_date}</h1>
+                </li>
+                <li
+                  class="flex justify-between capitalize w-full px-4 py-4 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+                >
+                  <h1 class="font-normal opacity-60 tracking-[1px]">
+                    Platform
+                  </h1>
+                  <h1 class="font-normal tracking-[1px]">${data.platform}</h1>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="botton w-full p-2">
+          <div class="description text-white flex flex-col gap-3 mb-4">
+            <h1 class="text-slate-950 dark:text-sky-400 text-3xl">
+              Game Description
+            </h1>
+            <p class="text-slate-950 dark:text-white">
+              ${data.description}
+            </p>
+          </div>`;
+  } else {
+    box = `
       <div
-            class="top w-full grid lg:grid-cols-[65%_35%] gap-y-8 items-center"
+            class="top w-full grid lg:grid-cols-[65%_35%] gap-y-8"
           >
             <div
               class="imgside h-auto flex flex-col gap-y-4 w-full sm:mt-0 md:p-2"
@@ -228,7 +349,7 @@ const showInfo = (data) => {
                 >
                   windows
                 </h1>
-                <div class="mimum">
+                <div class="minmum">
                   <h1
                     class="info dark:text-white text-slate-950 capitalize mb-5"
                   >
@@ -287,7 +408,8 @@ const showInfo = (data) => {
             </div>
           </div>
     `;
-  detailsInfo.innerHTML += box;
+  }
+  detailsInfo.innerHTML = box;
   ChangeImages();
 };
 
@@ -309,6 +431,7 @@ const showGameDetals = () => {
   boxes.forEach((ele) => {
     ele.addEventListener('click', () => {
       showDetals(`${ele.id.trim()}`);
+
       primarySection.classList.add('hidden');
       detalsPage.classList.remove('hidden');
     });
@@ -412,6 +535,7 @@ export const darkMode = () => {
   changeThemes.forEach((ele) => {
     ele.addEventListener('click', () => {
       themBg.classList.remove('sm:block');
+      themBg.classList.add('hidden');
       if (ele.textContent.trim() === 'Dark') {
         html.classList.add('dark');
       } else if (ele.textContent.trim() === 'Light') {
